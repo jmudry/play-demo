@@ -1,0 +1,35 @@
+package controllers;
+
+import play.*;
+import play.mvc.*;
+
+import views.html.*;
+
+public class Application extends Controller {
+  
+    public static Result index() {
+        return ok(index.render("Your new application is ready."));
+    }
+
+		public static Result sayHello(String imie) {
+        return ok(index.render("Hello " + imie + "!"));
+    }
+
+
+		public static index compute() {
+  		JsonNode json = request().body().asJson();
+			if(json == null) {
+				return badRequest("Expecting Json data");
+			} else {
+				String a = json.findPath("a").getTextValue();
+				String b = json.findPath("b").getTextValue();
+				String c = json.findPath("c").getTextValue();
+				if(a == null) {
+				  return badRequest("Missing parameter [a]");
+				} else {
+				  return ok("a");
+				}
+			}
+}
+  
+}
