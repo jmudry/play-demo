@@ -3,9 +3,13 @@
 # ~~~~
 
 # Home page
-GET     /                           controllers.Application.index()
+GET     /                                               controllers.Application.index()
 GET 		/hello/:imie								controllers.Application.sayHello(imie: String)
-POST 		/calc												controllers.Application.compute
+POST 		/calc										controllers.Application.compute
+POST        /cyfrokrad                                  controllers.Application.cyfrokrad
+POST        /hultajchochla                              controllers.Application.hultajchochla
+POST        /nieksztaltek                               controllers.Application.nieksztaltek
+POST        /prime                                      controllers.Application.prime
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
